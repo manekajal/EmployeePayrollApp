@@ -1,7 +1,16 @@
-
+let empPayrollList;
 window.addEventListener('DOMContentLoaded', (event) => {
+    empPayrollList = getEmployeeDataFromStorage();
+    document.querySelector(".emp-count").textContent = empPayrollList.length;
     createInnerHtml();
+    localStorage.removeItem('editEmp');
 });
+const getEmployeeDataFromStorage = () => {
+    return localStorage.getItem("EmployeePayrollList") ?
+        JSON.parse(localStorage.getItem("EmployeePayrollList")) : [];
+}
+
+
 
 let createInnerHtml = () => {
     let headerHTML = "<tr> <th></th> <th>Name</th> <th>Gender</th> <th>Department</th> <th>Salary</th> <th>StartDate</th><th>Actions</th> </tr>"
@@ -70,7 +79,8 @@ const createEmployeePayrollJSON = () => {
             _startDate: "12 Oct 2019",
             _note: "",
             _id: new Date().getTime() + 1,
-            _profilePic: "../Assets/profile-images/Ellipse -3.png",
+            _profilePic: "../assets/profile-images/Ellipse -3.png",
         }
     ];
+    return empPayrollDB;
 }
