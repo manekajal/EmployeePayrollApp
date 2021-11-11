@@ -52,35 +52,14 @@ const getDeptHtml = (deptList) => {
     return deptHtml;
 }
 
-const createEmployeePayrollJSON = () => {
-    return [
-
-        {
-            "_name": "Kajal Mane ",
-            "_gender": "Female",
-            "_department": [
-                "Engineer",
-                "Other"
-            ],
-            "_salary": "400000",
-            "_startDate": "01 Oct 2021",
-            "_note": "Welcome to Bridgelabz",
-            _id: new Date().getTime(),
-            "_profilePic": "../Assets/profile-images/Ellipse -1.png"
-        },
-        {
-            "_name": "Rohit Sharma ",
-            "_gender": "Male",
-            "_department": [
-                "HR",
-                "Finance"
-            ],
-            "_salary": "400000",
-            _startDate: "12 Oct 2019",
-            _note: "",
-            _id: new Date().getTime() + 1,
-            _profilePic: "../assets/profile-images/Ellipse -3.png",
-        }
-    ];
-    return empPayrollDB;
+const remove=(node)=>{
+    let empPayrollData=empPayrollList.find(empData => empData._id==node._id);
+    if(!empPayrollData) return;
+    const index=empPayrollList
+                .map(empData => empData._id)
+                .indexOf(empPayrollData._id);
+    empPayrollList.splice(index,1);
+    localStorage.setItem("EmployeePayrollList",JSON.stringify(empPayrollList));
+    document.querySelector(".emp-count").textContent=empPayrollList.length;
+    createInnerHtml();
 }
