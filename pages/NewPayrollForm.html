@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/New_Payroll_From.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
-
     <script type="text/javascript" src="../js/EmployeePayrollForm.js"></script>
     <script type="text/javascript" src="../js/EmploeePayrollData.js"></script>
     <link rel="logo" href="../assets/images/logo.jpg">
@@ -17,41 +16,44 @@
     <header class="header-content header">
         <div class="logo-content">
             <img src="../assets/images/logo.png" alt="logo">
-            
             <div>
                 <span class="emp-text">EMPLOYEE</span><br>
                 <span class="emp-text emp-payroll">PAYROLL</span>
             </div>
         </div>
     </header>
+
     <div class="form-content">
-        <form class="form" action="#" onsubmit="save(event);return false">
+        <form class="form" action="#" onreset="resetButton()" onsubmit="save(event)">
             <div class="form-head">Employee Payroll Form</div>
             <div class="row-content">
                 <label for="name" class="label text">Name</label>
                 <input type="text" name="name" id="name" class="input" placeholder="Your Name ..." required>
+                <error-output class="text-error"></error-output>
             </div>
+
             <div class="row-content">
                 <label class="label text" for="profile">Profile image</label>
                 <div class="profile-radio-content">
                     <label>
             <input type="radio" id="profile2" name="profile" value="../Assets/profile-images/Ellipse -1.png" required>
-            <img class="profile" id="image1" src="../assets/profile-images/Ellipse -1.png" alt="Sample">
+            <img class="profile" id="image1" src="../Assets/profile-images/Ellipse -1.png" alt="Sample">
           </label>
                     <label>
             <input type="radio" id="profile2" name="profile" value="../Assets/profile-images/Ellipse -2.png" required>
-            <img class="profile" id="image2" src="../assets/profile-images/Ellipse -2.png" alt="Sample">
+            <img class="profile" id="image2" src="../Assets/profile-images/Ellipse -2.png" alt="Sample">
           </label>
                     <label>
             <input type="radio" id="profile3" name="profile" value="../Assets/profile-images/Ellipse -3.png" required>
-            <img class="profile" id="image3" src="../assets/profile-images/Ellipse -3.png" alt="Sample">
+            <img class="profile" id="image3" src="../Assets/profile-images/Ellipse -3.png" alt="Sample">
           </label>
                     <label>
             <input type="radio" id="profile4" name="profile" value="../Assets/profile-images/Ellipse -4.png" required>
-            <img class="profile" id="image4" src="../assets/profile-images/Ellipse -4.png" alt="Sample">
+            <img class="profile" id="image4" src="../Assets/profile-images/Ellipse -4.png" alt="Sample">
           </label>
                 </div>
             </div>
+
             <div class="row-content">
                 <label class="label text" for="gender">Gender</label>
                 <div>
@@ -142,16 +144,17 @@
                         <option value="2017">2017</option>
                         <option value="2016">2016</option>
                     </select>
+                    <error-output class="dates-error" for="error"></error-output>
                 </div>
             </div>
-            
+
             <div class="row-content">
                 <label class="label text" for="notes">Notes</label>
-                <textarea id="notes" class="input" name="Notes" placeholder="" style="height:100px"></textarea>
+                <textarea id="notes" class="input" name="Notes" placeholder="type your notes here" style="height:100px"></textarea>
             </div>
 
             <div class="buttonParent">
-                <a href="./EmployeePayrollHomePage.html class="resetButton button cancelButton">Cancel</a>
+                <a href="./EmployeePayrollHomePage.html" class="resetButton button cancelButton">Cancel</a>
                 <div class="submit-reset">
                     <button type="submit" class="button submitButton" id="submitButton">Submit</button>
                     <button type="reset" class="resetButton button">Reset</button>

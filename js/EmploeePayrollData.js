@@ -15,7 +15,7 @@ class EmployeePayrollData {
         if (nameRegex.test(name))
             this._name = name;
         else
-            throw new Error("Name is Incorrect");
+            throw new Error("Name is incorrect  Rule : 1st letter should in caps,  Should contain min 3 letter");
     }
 
     get profilePic() {
@@ -48,9 +48,16 @@ class EmployeePayrollData {
     }
 
     set salary(salary) {
-
         this._salary = salary;
+    }
 
+    getTodayDate=()=>{
+        var objToday = new Date(),
+        dayOfMonth = objToday.getDate(),
+        months = new Array('jan', 'feb', 'mar', 'apr', 'may', 'june', 'july', 'aug', 'sep', 'oct', 'nov', 'dec'),
+        curMonth = months[objToday.getMonth()],
+        curYear = objToday.getFullYear();
+        return dayOfMonth + "-" + curMonth + "-" + curYear;
     }
 
     get startDate() {
@@ -58,7 +65,11 @@ class EmployeePayrollData {
     }
 
     set startDate(startDate){
-        this._startDate=startDate;
+        let now = new Date();
+        if (startDate > now) throw new Error("Start Date is a Future Date!");
+        var diff = Math.abs(now.getTime() - startDate.getTime());
+        if (diff / (1000 * 60 * 60 * 24) > 30) throw new Error("Start date is beyond 30 days");
+        this._startDate = startDate;
     }
     
     get notes() {
@@ -70,10 +81,19 @@ class EmployeePayrollData {
     }
 
     toString() {
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        const employeeDate = this.startDate == undefined ? "undefined" : 
-        this.startDate.toLocaleDateString("en-us", options);
-        return "id=" + this.id + "Name = " + this.name + ", profilePic = " + this.profilePic + ", Gender = " + this.gender + 
-        ", Department = " + this.department + ", Salary = " + this.salary + ", Start Date = " + employeeDate + ", Notes = " + this.notes;
+        const option = { day: "numeric", month: "short", year: "numeric" };
+        const empDate = !this.startDate ?
+            "undefined" :
+            this.startDate.toLocaleDateString("en-GB", option);
+        return (
+            "id=" + this.id +
+            ",name= '" + this.name +
+            ",gender= '" + this.gender +
+            ",profilePic= '" + this.profilePic +
+            ",department=" + this.department +
+            ",salary=" + this.salary +
+            ",startDate=" + empDate +
+            ",note=" + this.note
+        );
     }
 }
