@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/New_Payroll_From.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <script type="text/javascript" src="../js/Employee_Payroll_Form.js"></script>
+    <script type="text/javascript" src="../js/Emploee_Payroll_Data.js"></script>
+    <link rel="logo" href="../assets/images/logo.jpg">
     <title>Employee Payroll App</title>
 </head>
 
@@ -146,21 +150,13 @@
             </div>
 
             <div class="buttonParent">
-                <a href="./home.html" class="resetButton button cancelButton">Cancel</a>
+                <a href="./EmployeePayrollHomePage.html class="resetButton button cancelButton">Cancel</a>
                 <div class="submit-reset">
                     <button type="submit" class="button submitButton" id="submitButton">Submit</button>
                     <button type="reset" class="resetButton button">Reset</button>
                 </div>
             </div>
         </form>
-        <script>
-            const salary=document.querySelector('#salary');
-            const output=document.querySelector('.salary-output');
-            output.textContent=salary.value;
-            salary.addEventListener('input',function(){
-                output.textContent=salary.value;
-            })
-        </script>
     </div>
 </body>
 
