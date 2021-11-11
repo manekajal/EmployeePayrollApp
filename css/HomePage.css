@@ -44,6 +44,7 @@ body {
 .emp-payroll {
     color: #42515f;
 }
+
 .main-content {
     display: flex;
     flex-direction: column;
